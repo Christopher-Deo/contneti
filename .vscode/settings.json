@@ -1,6 +1,14 @@
 {
     "cSpell.words": [
+        "AIAPI",
         "Contenti",
+        "openai",
+        "trackpad",
         "webfonts"
-    ]
+    ],
+    "Codegeex.DisabledFor": {
+        "javascript": false,
+        "typescript": false,
+    },
+    "Codegeex.EnableExtension": false
 }

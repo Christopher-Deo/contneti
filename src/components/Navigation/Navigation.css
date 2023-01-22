@@ -1,11 +1,11 @@
 Nav{
-    text-decoration: none;
-    justify-content: space-between;
     background-color: #dcdfe6;
     padding: 0.75rem;
     font-size: 1.25rem;
-    width: 100%;
+    /* width: 100%; */
 }
 
-
-
+.nav-link:hover{
+    background-color: red;
+    color: white;
+}

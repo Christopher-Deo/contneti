@@ -1,8 +1,8 @@
-import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import Header from './components/Header/Header'
+import Navigation from '././components/Navigation/Navigation'
 
-import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home';
-import Blog from './pages/Blog';
 import Products from './pages/Products';
 import Tweets from './pages/Tweets';
 import Emails from './pages/Emails';
@@ -13,18 +13,18 @@ import './App.css';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <Router>
+
       <Navigation />
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/emails" element={<Emails />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/tweets" element={<Tweets />} />
-        </Routes>
-        </Router>
-    </div>
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            {/* <Route path="/products" element={<Products/>} /> */}
+            <Route path="/emails" element={<Emails />} />
+            <Route path="/tweets" element={<Tweets />} />
+          </Routes>   
+      </div>
+    </Router>
   );
 }
 
