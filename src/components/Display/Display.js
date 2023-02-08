@@ -2,20 +2,19 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Card, Nav, Button } from 'react-bootstrap';
 
-const Display = () => {
+const Display = (props) => {
 
-    const { header, title, text, theLink } = this.props;
 
     return (
         <div className='cardComponent'>
             <Card>
-                <Card.Header>{header}</Card.Header>
+                <Card.Header>{props.header}</Card.Header>
                 <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Text>{text}</Card.Text>
-                    <Nav.Link href={theLink}>
-                        <Button variant="primary" size='lg'>
-                            Get Started
+                    <Card.Title>{props.title}</Card.Title>
+                    <Card.Text>{props.text}</Card.Text>
+                    <Nav.Link href={props.theLink}>
+                        <Button variant="warning" size='sm'>
+                            Generate
                         </Button>
                     </Nav.Link>
                 </Card.Body>

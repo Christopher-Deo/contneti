@@ -23,21 +23,21 @@ class Products extends React.Component {
       });
       const openai = new OpenAIApi(configuration);
 
-      openai.createCompletion('text-davinci-003'{
-      prompt: `Write a detailed, smart, informative, and professional product description for ${formDataObj.productName}}`;
-      temperature: 0.8,
-      max_tokens: 512,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    })
-    .then(response) => {
-      this.setState({
-        heading: `Product Descriptions Suggestions for: ${formDataObj.productName}`,
-        response: `${response.data.choices[0].text}`
-      }).catch(error => {
-        console.error('OpenAI error', error);
-      });
+      // openai.createCompletion('text-davinci-003'{
+      // prompt: `Write a detailed, smart, informative, and professional product description for ${formDataObj.productName}}`;
+      // temperature: 0.8,
+      // max_tokens: 512,
+      // top_p: 1,
+      // frequency_penalty: 0,
+      // presence_penalty: 0,
+    // })
+    // .then(response) => {
+    //   this.setState({
+    //     heading: `Product Descriptions Suggestions for: ${formDataObj.productName}`,
+    //     response: `${response.data.choices[0].text}`
+    //   }).catch(error => {
+    //     console.error('OpenAI error', error);
+    //   });
       // this.setState({
       //   heading: `Product Descriptions Suggestions for: ${formDataObj.productName}`,
       //   response: `The response from the description generator will be shown here`
