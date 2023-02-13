@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Tweets from './pages/Tweets';
 import Emails from './pages/Emails';
+import Settings from './pages/Settings'
 
 
 import './App.css';
@@ -22,7 +23,8 @@ function App() {
             <Route path="/blog" element={<Blog/>} />
             <Route path="/emails" element={<Emails />} />
             <Route path="/tweets" element={<Tweets />} />
-          </Routes>   
+        <Route path="/settings" element={<Settings />} />
+      </Routes>   
       </div>
     
   );

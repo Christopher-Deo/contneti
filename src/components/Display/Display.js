@@ -6,7 +6,7 @@ const Display = (props) => {
 
 
     return (
-        <div className='cardComponent'>
+        <div className='cardComponent my-2'>
             <Card>
                 <Card.Header>{props.header}</Card.Header>
                 <Card.Body>

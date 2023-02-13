@@ -1,23 +1,23 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import logo from '../images/brand-logo.png';
 import Display from '../components/Display/Display';
+
+
 const Home = () => {
   return (
-    <main className='homePage'>
+    <main className='homePage py-5'>
       <Container className='container container-fluid'>
-        <h1 className='mt-5 '>Cure your writer's block the easy way!</h1>
-        <p>Start by choosing any of the options below to start generating content.</p>
-        <br />
-        <br />
-        <div className="generationOptions">
+        <h1 className='text-center'>Cure your writer's block the easy way!</h1>
+        <p className='text-center'>Start by choosing any of the options below to start generating content.</p>
+
+        <div className="generationOptions border border-danger rounded py-3 px-3 bg-primary">
           <Row>
             <Col>
               <Display
                 header="Blog Post"
                 title="Generate Blog Posts"
-                text="Create unique and engaging blog posts in seconds!"
+                text="Create unique and engaging blog posts without having to fight writer's block!"
                 theLink="/blog"
               />
             </Col>
@@ -41,7 +41,7 @@ const Home = () => {
               <Display
                 header="Product Descriptions"
                 title="Generate Product Descriptions"
-                text="Answer a few questions, click a button...BOOM! Product descriptions!"
+                text="Instantly create compelling product descriptions!"
                 theLink="/products"
               />
             </Col>

@@ -23,7 +23,8 @@ const Navigation = () => {
             <Nav.Link href="/emails" className='navItem'>Emails</Nav.Link>
 
             <Nav.Link href="/tweets" className='navItem'>Tweets</Nav.Link>
-          </Nav>
+          
+            <Nav.Link href="/settings" className='navItem'>Settings</Nav.Link></Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>
