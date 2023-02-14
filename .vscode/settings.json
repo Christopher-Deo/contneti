@@ -1,6 +1,16 @@
 {
     "cSpell.words": [
+        "AIAPI",
+        "APIKEY",
         "Contenti",
+        "immer",
+        "openai",
+        "trackpad",
         "webfonts"
-    ]
+    ],
+    "Codegeex.DisabledFor": {
+        "javascript": false,
+        "typescript": false,
+    },
+    "Codegeex.EnableExtension": false
 }
