@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import { Container, Form, Button, Card } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, connect } from 'react-redux';
+import { Container, Form, Button } from 'react-bootstrap';
+import { actions } from "../redux/apiSlice";
 
-const Settings = () => {
+
+const Settings = (props) => {
     const [input, setInput] = useState('');
     const [apiKey, setApiKey] = useState(input);
+    const dispatch = useDispatch();
+
 
     const handleChange = ((event) => {
         setInput(event.target.value);
@@ -12,9 +17,13 @@ const Settings = () => {
     const handleClick = ((event) => {
         event.preventDefault();
         setApiKey(input);
+
         console.log('My api key is ', apiKey);
     });
 
+    useEffect(() => {
+        console.log('props ', props);
+    });
 
     return (
         <Container className='mt-5 p-4 border border-2 border-success rounded' >
@@ -30,9 +39,11 @@ const Settings = () => {
                     />
                 </Form.Group>
                 <Button
-                    type='submit'
+                    type='button'
                     variant='warning'
-                    onClick={handleClick}
+                    onClick={() => actions.setValue(
+                        { payload: input }
+                    )}
                 >
                     Add API Key
                 </Button>
@@ -40,5 +51,11 @@ const Settings = () => {
         </Container>
     );
 };
+const mapStateToProps = (state, ownProps) => {
+    return {
+        ...ownProps,
+        apiKey: state.apiKey
+    };
+};
 
-export default Settings;
+export default connect(mapStateToProps)(Settings);

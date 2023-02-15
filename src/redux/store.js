@@ -1,14 +1,15 @@
-import { createStore, useDispatch } from "react-redux";
+import { createStore, useDispatch, combineReducers } from "redux";
+import  apiSlice  from "./apiSlice";
 
-const store = createStore(slice.reducer);
-const Input = () => {
-    const [value, setValue] = useState('');
-    const dispatch = useDispatch();
-    const handleChange = (e) => {
-        setValue(e.target.value);
-        dispatch(slice.actions.setValue(e.target.value));
-    };
-    return (
-        <h1>!Me</h1>
-    );
-};
+
+const reducer = combineReducers({
+    apiKey: apiSlice.reducer
+    //add'l reducers go here
+});
+
+
+const store = createStore(reducer);
+console.log(store.getState());
+
+
+export default store;

@@ -8,12 +8,15 @@ const initialState = ({
 
 //building out the slice file
 
-export const apiSlice = createSlice({
+ const apiSlice = createSlice({
     name: 'apiKey',
     initialState,
     reducers: {
         setValue: (state, action) => {
-            state.apiKey = action.payload;
+            state.value = action.payload;
         },
     },
-});
+ });
+
+export const { actions, reducer } = apiSlice;
+export default apiSlice;
