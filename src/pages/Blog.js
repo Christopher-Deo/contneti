@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Container, Button } from 'react-bootstrap';
+import { Form, Container, Button, Card } from 'react-bootstrap';
 const { Configuration, OpenAIApi } = require("openai");
 
 const Blog = (props) => {
@@ -51,9 +51,10 @@ const Blog = (props) => {
   return (
     <>
       <section className='mt-3'>
-        <Container>
-          <h1 className='mt-5'>Blog Post Generator</h1>
-          <p>Enter a topic into the form. Click "submit" to generate 10 blog title ideas</p>
+        <h1 className='my-3 text-center'>Blog Post Generator</h1>
+        <Container className=' p-3 border border-2 border-success rounded'>
+          <h2 className='mt-2 text-center'>Blog Post Title Generator</h2>
+          <p className='text-center'>Enter a topic into the form. Click "submit" to generate 10 blog title ideas</p>
           <Form>
             <Form.Group className="mb-3" controlId="formTopic">
               <Form.Label>Enter a topic</Form.Label>
@@ -73,21 +74,55 @@ const Blog = (props) => {
               Get Ideas
             </Button>
           </Form>
+
+          <h2 className='mt-5 text-center'>Blog Title Suggestions</h2>
+          <Card className="mt-5 border border-2 border-primary">
+            <Card.Body>
+              <Card.Title
+                className='mt-1 text-center border border-1 border-danger rounded'>
+                Blog Titles
+              </Card.Title>
+              <Form.Text className='text-muted'>
+                Select title suggestion to generate blog post
+              </Form.Text>
+              <Card.Text className='mt-3 border rounded px-2 py-2'>
+                <input className="m-1" type="radio" aria-label="radio button for blog title selection" />
+                Lorem ipsum dolor sit amet.
+              </Card.Text>
+              <Card.Text className='mt-3 border rounded px-2 py-2'>
+                <input className="m-1" type="radio" aria-label="radio button for blog title selection" />
+                Lorem ipsum dolor sit amet.
+              </Card.Text>
+              <Card.Text className='mt-3 border rounded px-2 py-2'>
+                <input className="m-1" type="radio" aria-label="radio button for blog title selection" />
+                Lorem ipsum dolor sit amet.
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer >
+              <Button className='mt-2 btn-sm' variant='primary'>Generate Additional Titles</Button>
+            </Card.Footer>
+          </Card>
         </Container>
-        <Container>
-          <h2 className='mt-5'>Blog Title Suggestions</h2>
-          <div className='mt-3'>
-            {/* list of suggestions goes here
-            map response object to new array
-            loop over array and extract each suggestion
-            append suggestion to the list
-            add a radio button to each suggestion as selection device
-            create new post using the selected suggestion
-            or generate new list
-            means of extracting the ideas and posts as a file
-            for import into WP/blog
-            */}
-          </div>
+        <Container className='mt-3 p-3 border border-2 border-success rounded'>
+          <h2 className='mt-1 text-center'>Generated Blog Post</h2>
+          <Card className="mt-3 border border-2 border-primary">
+            <Card.Body>
+              <Card.Title className='mt-1 text-center border border-1 border-danger rounded'>
+                Article
+              </Card.Title>
+              <Card.Text className='mt-3 border rounded px-2 py-2'>
+                <h3 className='text-center'>Sample Blog Title</h3>
+                <p className='p-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Fugit harum commodi animi repellendus,
+                  quo nihil est cumque ea assumenda enim molestias temporibus
+                  consectetur deleniti laborum maiores nobis nemo facilis atque?
+                  Quae dolorem velit ab reiciendis aperiam corporis mollitia
+                  consequatur sint debitis magni corrupti nihil, earum excepturi
+                  adipisci animi blanditiis? Maxime!
+                </p>
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </Container>
       </section>
     </>
