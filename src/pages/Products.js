@@ -38,10 +38,11 @@ const Products = (props) => {
             </Form.Text>
           </Form.Group>
 
-
-          <Button variant="primary" type="submit" className='mt-3'>
-            📝 Generate Product Description 🛍️
-          </Button>
+          <div className='d-flex justify-content-end'>
+            <Button type="submit" className='btn btn-sm btn-outline-dark text-white mt-3'>
+              Generate Product Descriptions
+            </Button>
+          </div>
         </Form>
         <Card className="mt-5 border border-2 border-primary">
           <Card.Body>
@@ -51,8 +52,8 @@ const Products = (props) => {
             </Card.Text>
           </Card.Body>
           <Card.Footer className='d-flex justify-content-between'>
-            <Button className='btn-sm' variant="success">Export to File</Button>
-            <Button className='btn-sm' variant="primary">Get Another Version</Button>
+            <Button className='btn btn-sm btn-outline-dark btn-success text-white'>Export to File</Button>
+            <Button className='btn btn-sm btn-outline-dark text-white'>Get Another Version</Button>
           </Card.Footer>
         </Card>
       </Container>

@@ -7,7 +7,7 @@ import Tweets from './pages/Tweets';
 import Emails from './pages/Emails';
 import Products from './pages/Products'
 import Settings from './pages/Settings'
-
+import Profile from './pages/Profile';
 
 import './App.css';
 
@@ -26,6 +26,7 @@ function App() {
         <Route path="/tweets" element={<Tweets />} />
         <Route path="/products" element={<Products />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>   
       </div>
     

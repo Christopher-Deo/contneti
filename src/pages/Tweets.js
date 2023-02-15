@@ -17,13 +17,14 @@ const Tweets = () => {
             >
             </Form.Control>
           </Form.Group>
+          <div className='d-flex justify-content-end'>
           <Button
-            className='btn-sm'
-            type='submit'
-            variant='warning'
+            className='btn btn-sm btn-outline-dark text-white'
+            type="button"
           >
             Generate Tweets
-          </Button>
+            </Button>
+            </div>
         </Form>
       </Container>
       <Container className='mt-3 p-3 border border-2 border-success rounded'>
@@ -34,30 +35,26 @@ const Tweets = () => {
               Tweets
             </Card.Title>
             <Card.Text className='mt-3 border rounded px-2 py-2'>
-              {/* <h3 className='text-center'>Sample Blog Title</h3> */}
-              <p className='p-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Fugit harum commodi animi repellendus,
-                quo nihil est cumque ea assumenda enim molestias temporibus
-                consectetur deleniti laborum maiores nobis nemo facilis atque?
-                Quae dolorem velit ab reiciendis aperiam corporis mollitia
-                consequatur sint debitis magni corrupti nihil, earum excepturi
-                adipisci animi blanditiis? Maxime!
-              </p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Fugit harum commodi animi repellendus,
+              quo nihil est cumque ea assumenda enim molestias temporibus
+              consectetur deleniti laborum maiores nobis nemo facilis atque?
+              Quae dolorem velit ab reiciendis aperiam corporis mollitia
+              consequatur sint debitis magni corrupti nihil, earum excepturi
+              adipisci animi blanditiis? Maxime!
             </Card.Text>
             <Card.Text className='mt-3 border rounded px-2 py-2'>
-              {/* <h3 className='text-center'>Sample Blog Title</h3> */}
-              <p className='p-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Fugit harum commodi animi repellendus,
-                quo nihil est cumque ea assumenda enim molestias temporibus
-                consectetur deleniti laborum maiores nobis nemo facilis atque?
-                Quae dolorem velit ab reiciendis aperiam corporis mollitia
-                consequatur sint debitis magni corrupti nihil, earum excepturi
-                adipisci animi blanditiis? Maxime!
-              </p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Fugit harum commodi animi repellendus,
+              quo nihil est cumque ea assumenda enim molestias temporibus
+              consectetur deleniti laborum maiores nobis nemo facilis atque?
+              Quae dolorem velit ab reiciendis aperiam corporis mollitia
+              consequatur sint debitis magni corrupti nihil, earum excepturi
+              adipisci animi blanditiis? Maxime!
             </Card.Text>
           </Card.Body>
           <Card.Footer className='d-flex justify-content-end'>
-            <Button className='btn-sm'>
+            <Button className='btn btn-sm btn-outline-dark text-white'>
               Generate Tweet
             </Button>
           </Card.Footer>

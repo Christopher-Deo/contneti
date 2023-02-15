@@ -28,9 +28,8 @@ const Emails = () => {
           </Form.Group>
           <div className='d-flex justify-content-end'>
             <Button
-              className='btn-sm'
+              className='btn btn-sm btn-outline-dark text-white'
               type='submit'
-              variant='warning'
             >
               Get Ideas
             </Button>
@@ -62,7 +61,7 @@ const Emails = () => {
             </Card.Text>
           </Card.Body>
           <Card.Footer className='d-flex justify-content-end'>
-            <Button className='mt-2 btn-sm' variant='primary'>More Subject Lines</Button>
+            <Button className='btn btn-sm btn-outline-dark text-white'>More Subject Lines</Button>
           </Card.Footer>
         </Card>
       </Container>
@@ -74,21 +73,18 @@ const Emails = () => {
               Email
             </Card.Title>
             <Card.Text className='mt-3 border rounded px-2 py-2'>
-              <h3 className='text-center'>Sample Email</h3>
-              <p className='p-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Fugit harum commodi animi repellendus,
-                quo nihil est cumque ea assumenda enim molestias temporibus
-                consectetur deleniti laborum maiores nobis nemo facilis atque?
-                <a href='https//christopherdeo.com' target='none'>Quae dolorem velit</a> ab reiciendis aperiam corporis mollitia
-                consequatur sint debitis magni corrupti nihil, earum excepturi
-                adipisci animi blanditiis? Maxime!
-              </p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Fugit harum commodi animi repellendus,
+              quo nihil est cumque ea assumenda enim molestias temporibus
+              consectetur deleniti laborum maiores nobis nemo facilis atque?
+              <a href='https//christopherdeo.com' target='none'>Quae dolorem velit</a> ab reiciendis aperiam corporis mollitia
+              consequatur sint debitis magni corrupti nihil, earum excepturi
+              adipisci animi blanditiis? Maxime!
             </Card.Text>
           </Card.Body>
           <Card.Footer className='d-flex justify-content-end'>
             <Button
-              className='btn-sm'
-              variant='primary'
+              className='btn btn-sm btn-outline-dark text-white'
             >
               Add To Clipboard
             </Button>
