@@ -6,6 +6,7 @@
         "immer",
         "openai",
         "trackpad",
+        "TTFB",
         "webfonts"
     ],
     "Codegeex.DisabledFor": {

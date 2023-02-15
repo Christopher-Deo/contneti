@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-
+import { Container, Form, Button, Card } from 'react-bootstrap';
 
 const Settings = () => {
     const [input, setInput] = useState('');
@@ -19,10 +17,10 @@ const Settings = () => {
 
 
     return (
-        <section className='mx-5 my-5'>
-            <h1 className='text-center mt-3'>Settings</h1>
+        <Container className='mt-5 p-4 border border-2 border-success rounded' >
+            <h1 className='text-center'>Settings</h1>
 
-            <Form className='mt-3'>
+            <Form className='mt-3 p-3 border border-primary rounded'>
                 <Form.Group className="mb-3" controlId="formApiKey">
                     <Form.Label>OpenAI API Key</Form.Label>
                     <Form.Control type="text"
@@ -39,7 +37,7 @@ const Settings = () => {
                     Add API Key
                 </Button>
             </Form>
-        </section>
+        </Container>
     );
 };
 
