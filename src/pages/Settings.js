@@ -1,20 +1,25 @@
+import { ResetTv } from '@mui/icons-material';
 import React, { useState } from 'react';
 import { Container, Form, Button, Card } from 'react-bootstrap';
 
-const Settings = () => {
-    const [input, setInput] = useState('');
-    const [apiKey, setApiKey] = useState(input);
+const Settings = ({ callback }) => {
+
+    const [apiKey, setApiKey] = useState('');
 
     const handleChange = ((event) => {
-        setInput(event.target.value);
+        setApiKey(event.target.value);
     });
 
     const handleClick = ((event) => {
         event.preventDefault();
-        setApiKey(input);
+        setApiKey(apiKey);
         console.log('My api key is ', apiKey);
+        
     });
 
+    const state = {
+        key: apiKey
+    };
 
     return (
         <>
@@ -26,7 +31,7 @@ const Settings = () => {
                         <Form.Label>OpenAI API Key</Form.Label>
                         <Form.Control type="text"
                             placeholder="Enter API Key"
-                            value={input}
+                            value={apiKey}
                             onChange={handleChange}
                         />
                     </Form.Group>

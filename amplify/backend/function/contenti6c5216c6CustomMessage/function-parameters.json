@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "contenti6c5216c6",
+  "functionName": "contenti6c5216c6CustomMessage",
+  "resourceName": "contenti6c5216c6CustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "contenti6c5216c6CustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "https://contenti.app",
+  "EMAILSUBJECT": "Your Contnti Registration",
+  "EMAILMESSAGE": "Please click the link below to confirm your registration",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}

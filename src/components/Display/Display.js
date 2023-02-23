@@ -1,9 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Nav, Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+
 
 const Display = (props) => {
-
 
     return (
         <div className='cardComponent my-2'>
@@ -18,11 +20,13 @@ const Display = (props) => {
                 </Card.Body>
                 <Card.Footer>
                     <div className='d-flex justify-content-center py-2'>
-                        <Nav.Link href={props.theLink}>
-                            <Button className='btn btn-sm btn-outline-dark text-white'>
+                        <Link to={props.theLink}>
+                            <Button
+                                className='btn btn-sm btn-outline-dark text-white'
+                            >
                                 Generate
                             </Button>
-                        </Nav.Link>
+                        </Link>
                     </div>
                 </Card.Footer>
             </Card>
