@@ -5,13 +5,8 @@ import Display from '../components/Display/Display';
 
 
 const Home = () => {
-  //to be used in callback function to lift state from settings component
-  const [state, setState] = useState({});
+ 
   
-  const callback = payload => {
-    setState(payload);
-    console.log(state);
-  }
 
   return (
     <main className='homePage py-5'>
