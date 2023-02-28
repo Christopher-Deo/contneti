@@ -12,20 +12,30 @@ import './App.css';
 
 function App() {
   const [apiKey, setApiKey] = useState('');
-  const data = window.localStorage.getItem('Contenti');
   
+  
+
+
+  const data = window.localStorage.getItem('Contenti');
+
+  // callback functions for lifting state
   const handleApiKeyChange = (apiKey) => { setApiKey(apiKey); };
+  // const handleTopicChange = (topic) =>{ setTopic(topic)}
+ 
+   const [selectedBlogTitle, setSelectedBlogTitle] = useState(""); 
+
+  
+  // useEffect(() => {
+  //   if (data) {
+  //     setApiKey(JSON.parse(data));
+  //     console.log('data payload is ', data);
+  //   }
+  // }, []);
 
   useEffect(() => {
-    const data = window.localStorage.getItem('Contenti');
-    if (data) {
-      setApiKey(JSON.parse(data));
-      console.log('data payload is ', data);
+    if (apiKey) {
+      window.localStorage.setItem('Contenti', JSON.stringify(apiKey));
     }
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem('Contenti', JSON.stringify(apiKey));
   }, [apiKey]);
 
 
@@ -35,11 +45,12 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog" 
+          element={<Blog  />} />
         <Route path="/emails" element={<Emails />} />
         <Route path="/tweets" element={<Tweets />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/settings" element={<Settings setApiKey={handleApiKeyChange} apiKey={apiKey} />} />
+        <Route path="/settings" element={<Settings setApiKey={handleApiKeyChange}  />} />
         <Route path='/profile' element={<Profile />} />
       </Routes>
     </div>

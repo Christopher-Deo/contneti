@@ -3,7 +3,7 @@ import { Container, Form, Button, Card } from 'react-bootstrap';
 // const { Configuration, OpenAIAPI } = require('openai-api');
 
 const Products = (props) => {
-  const apiKey = `${props.apiKey}`;
+  
 
 
 

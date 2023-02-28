@@ -23,7 +23,7 @@ const Settings = (props) => {
         if (props.data && props.data !== "") {
             setIsButtonDisabled(true);
         }
-    }, []);
+    }, [props.data]);
 
     
     return (
