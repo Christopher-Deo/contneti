@@ -11,21 +11,24 @@ import Profile from './pages/Profile';
 import './App.css';
 
 function App() {
-  //to be used in callback function to lift state from settings component
   const [apiKey, setApiKey] = useState('');
-
+  const data = window.localStorage.getItem('Contenti');
+  
   const handleApiKeyChange = (apiKey) => { setApiKey(apiKey); };
 
   useEffect(() => {
-    const data = localStorage.getItem(apiKey);
+    const data = window.localStorage.getItem('Contenti');
     if (data) {
       setApiKey(JSON.parse(data));
+      console.log('data payload is ', data);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(apiKey, JSON.stringify(apiKey));
-  });
+    window.localStorage.setItem('Contenti', JSON.stringify(apiKey));
+  }, [apiKey]);
+
+
 
   return (
     <div className="App">

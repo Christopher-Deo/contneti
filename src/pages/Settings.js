@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 
 const Settings = (props) => {
-    const [localApiKey, setLocalApiKey] = useState("")
+    const [localApiKey, setLocalApiKey] = useState("");
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
+   
+
     const handleChange = (event) => {
         console.log(`local api key value: ${event.target.value}`);
-        setLocalApiKey(event.target.value)
+        setLocalApiKey(event.target.value);
     };
 
     const addKey = (event) => {
@@ -13,6 +18,12 @@ const Settings = (props) => {
         console.log(`app level api key is: ${localApiKey}`);
         props.setApiKey(localApiKey);
     };
+
+    useEffect(() => {
+        if (props.data && props.data !== "") {
+            setIsButtonDisabled(true);
+        }
+    }, []);
 
     
     return (
@@ -34,10 +45,11 @@ const Settings = (props) => {
                     </Form.Group>
                     <div className='d-flex justify-content-end'>
                         <Button
-                            className='btn btn-sm btn-outline-dark text-white'
+                            className='btn btn-sm btn-outline-dark text-dark'
                             type='submit'
+                            disabled={isButtonDisabled}
                         >
-                            Add API Key
+                            {isButtonDisabled ? 'Enter Your Key' : 'Valid Key Entered'}
                         </Button>
                     </div>
                 </Form>
