@@ -39,7 +39,7 @@ const BlogTitles = ({ selectedBlogTitle, handleBlogTitleChange }) => {
             prompt: prompt,
             temperature: 0.1,
             max_tokens: 2048,
-            n: 10,
+            n: 5,
             temperature: 0.7,
             top_p: 0.9,
             frequency_penalty: 0,
@@ -60,20 +60,20 @@ const BlogTitles = ({ selectedBlogTitle, handleBlogTitleChange }) => {
                     const titles = response.data.choices.map(choice => choice.text.trim());
                     setBlogTitles(titles);
                     console.log('titles = ', titles);
-                    console.log('openAI response = ', response.data);
+                    // console.log('openAI response = ', response.data);
                 }
                 setIsLoading(false);
-                console.log(response.data);
+                // console.log(response.data);
                 console.log(response.data.choices[0].text);
                 console.log(response.data.choices[1].text);
                 console.log(response.data.choices[2].text);
                 console.log(response.data.choices[3].text);
                 console.log(response.data.choices[4].text);
-                console.log(response.data.choices[5].text);
-                console.log(response.data.choices[6].text);
-                console.log(response.data.choices[7].text);
-                console.log(response.data.choices[8].text);
-                console.log(response.data.choices[9].text);
+                // console.log(response.data.choices[5].text);
+                // console.log(response.data.choices[6].text);
+                // console.log(response.data.choices[7].text);
+                // console.log(response.data.choices[8].text);
+                // console.log(response.data.choices[9].text);
             })
             .catch(error => {
                 console.error(error);
