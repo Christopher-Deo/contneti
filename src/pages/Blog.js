@@ -10,11 +10,12 @@ const Blog = (props) => {
   // const [selectedBlogTitle, setSelectedBlogTitle] = useState("");
   // const handleTopicChange = (topic) =>{ setTopic(topic)}
   // const handleTitleSelection = (blogTitles) => { setBlogTitles([]); };
-  const [selectedBlogTitle, setSelectedBlogTitle] = useState(""); 
+  const [selectedBlogTitle, setSelectedBlogTitle] = useState("");
 
   useEffect(() => {
-    console.log(selectedBlogTitle);
-  },[selectedBlogTitle]);
+    console.log('selectedBlogTitle = ', selectedBlogTitle);
+    ;
+  }, [selectedBlogTitle]);
 
 
 
@@ -27,7 +28,6 @@ const Blog = (props) => {
           <BlogTitles selectedBlogTitle={selectedBlogTitle} />
         </Container>
         <BlogPost />
-
 
       </section>
     </>

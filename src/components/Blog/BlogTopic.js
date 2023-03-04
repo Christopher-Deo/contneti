@@ -9,7 +9,6 @@ const BlogTopic = (props) => {
     const addTopic = (event) => {
         event.preventDefault();
         props.setSelectedBlogTitle(topic);
-        console.log('blog topic is ', event);
     };
 
     const resetTopic = () => {

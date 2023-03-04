@@ -25,12 +25,12 @@ function App() {
    const [selectedBlogTitle, setSelectedBlogTitle] = useState(""); 
 
   
-  // useEffect(() => {
-  //   if (data) {
-  //     setApiKey(JSON.parse(data));
-  //     console.log('data payload is ', data);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (data) {
+      setApiKey(JSON.parse(data));
+      console.log('data payload is ', data);
+    }
+  }, []);
 
   useEffect(() => {
     if (apiKey) {

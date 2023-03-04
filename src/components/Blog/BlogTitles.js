@@ -1,60 +1,93 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
+import axios from 'axios';
+import uuidv4 from 'react-uuid';
 const { Configuration, OpenAIApi } = require("openai");
 
 
 
-const BlogTitles = (props) => {
-    const newKey = window.localStorage.getItem('Contenti');
-
+const BlogTitles = ({ selectedBlogTitle, handleBlogTitleChange }) => {
+    
     const [isLoading, setIsLoading] = useState(false);
     const [blogTitles, setBlogTitles] = useState([]);
 
-    const configuration = new Configuration({
-        apiKey: newKey
-    });
-    const openai = new OpenAIApi(configuration);
-
-
-
-    const handleTitleSelection = (logTitles) => { props.setBlogTitles([]); };
+    const newKey = JSON.parse(window.localStorage.getItem('Contenti'));
+   
     const clearTitles = () => {
-        props.setBlogTitles([]);
+        setBlogTitles([]);
         console.log('titles cleared');
     };
 
-    const handleGenerateArticle = () => {
+    const configuration = new Configuration({
+        apiKey: newKey,
+        basePath: 'https://api.openai.com/v1',
+    });
+
+    const axiosInstance = axios.create({
+        baseURL: 'https://api.openai.com/v1',
+    });
+   
+    // const openai = new OpenAIApi(configuration, undefined, axiosInstance);
+   
+    const generateTitles = async () => {
         setIsLoading(true);
-        console.log('openai = ', openai);
-        // openai.apiKey = newKey;
-        console.log('blogTitle = ', props.selectedBlogTitle);
-        const prompt = `Generate 10 unique and engaging blog titles about ${props.selectedBlogTitle}\n\n`;
+        console.log('blogTitle = ', selectedBlogTitle);
+        const prompt = `Generate ten unique, distinct, & engaging, and creative blog titles about ${selectedBlogTitle}\n\n`;
         const model = 'text-davinci-003';
-        const parameters = {
-            prompt,
-            model,
-            max_tokens: 50,
+
+        const requestBody = {
+            prompt: prompt,
+            temperature: 0.1,
+            max_tokens: 2048,
             n: 10,
             temperature: 0.7,
-            stop: '\n',
+            top_p: 0.9,
+            frequency_penalty: 0,
+            presence_penalty: 0.0,
+            stop: ['\n'],
         };
-        openai.createCompletion(parameters)
+
+        const requestConfig = {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${newKey}`,
+            },
+        };
+
+        axios.post(`https://api.openai.com/v1/engines/${model}/completions`, requestBody, requestConfig)
             .then(response => {
-                const titles = response.choices.map(choice => choice.text.trim());
-                props.setBlogTitles(titles);
+                if (response.data && response.data.choices) {
+                    const titles = response.data.choices.map(choice => choice.text.trim());
+                    setBlogTitles(titles);
+                    console.log('titles = ', titles);
+                    console.log('openAI response = ', response.data);
+                }
                 setIsLoading(false);
+                console.log(response.data);
+                console.log(response.data.choices[0].text);
+                console.log(response.data.choices[1].text);
+                console.log(response.data.choices[2].text);
+                console.log(response.data.choices[3].text);
+                console.log(response.data.choices[4].text);
+                console.log(response.data.choices[5].text);
+                console.log(response.data.choices[6].text);
+                console.log(response.data.choices[7].text);
+                console.log(response.data.choices[8].text);
+                console.log(response.data.choices[9].text);
             })
             .catch(error => {
                 console.error(error);
                 setIsLoading(false);
             });
     };
+        
 
-    console.log(openai);
     useEffect(() => {
-        console.info('console.info call = ', props.selectedBlogTitle);
-        handleGenerateArticle();
-    }, [props.selectedBlogTitle]);
+        if (selectedBlogTitle) {
+            console.info('console.info call = ', selectedBlogTitle);
+            generateTitles();
+        }
+    }, [selectedBlogTitle]);
 
     return (
         <>
@@ -67,19 +100,19 @@ const BlogTitles = (props) => {
                     <Form.Text className='text-muted'>
                         Select title suggestion to generate blog post
                     </Form.Text>
-                    <Card.Text>
+                    <div>
                         {blogTitles.length > 0 ? (
                             <ul>
                                 {blogTitles.map((title) => (
-                                    <li key={title}>
-                                        <label>
+                                    <li key={uuidv4()}>
+                                        <label htmlFor={title}>
                                             <input
                                                 type="radio"
                                                 value={title}
-                                            // checked={props.selectedBlogTitle === title}
-                                            // onChange={props.handleBlogTitleChange}
+                                                // checked={selectedBlogTitle === title}
+                                                onChange={handleBlogTitleChange}
                                             />
-                                            <span>{title}</span>
+                                            <span key={title}> {title}</span>
                                         </label>
                                     </li>
                                 ))}
@@ -87,7 +120,7 @@ const BlogTitles = (props) => {
                         ) : (
                             <span>{isLoading ? 'Loading blog titles...' : 'Click "Generate Additional Titles" to get started.'}</span>
                         )}
-                    </Card.Text>
+                    </div>
                 </Card.Body>
                 <Card.Footer>
                     <div className='d-flex justify-content-between'>
@@ -102,7 +135,7 @@ const BlogTitles = (props) => {
                             className='btn btn-sm btn-outline-dark text-white'
                             variant='primary'
                             disabled={isLoading}
-                            onClick={handleGenerateArticle}
+                            onClick={generateTitles}
                         >
                             {isLoading ? 'Generating...' : 'Generate Additional Titles'}
                         </Button>

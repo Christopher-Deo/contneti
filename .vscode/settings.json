@@ -4,6 +4,7 @@
         "APIKEY",
         "Contenti",
         "immer",
+        "KHTML",
         "openai",
         "trackpad",
         "TTFB",
@@ -13,5 +14,5 @@
         "javascript": false,
         "typescript": false,
     },
-    "Codegeex.EnableExtension": false
+    "Codegeex.EnableExtension": true
 }
